@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latihan Array</title>
+  </head>
+  <body>
+    <h1>Latihan Array</h1>
+    <hr />
+    <br />
+    <table
+      width="100%"
+      border="2"
+      cellspacing="2"
+      cellpadding="10"
+      align="center"
+    >
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama</th>
+          <th>Alamat</th>
+          <th>Nilai</th>
+          <th>Grade</th>
+          <th>Predikat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <script>
+          let students = [
+            { nama: "Tatang Samsudin", alamat: "Jatinangor", nilai: "90" },
+            { nama: "Samsul Sudirman", alamat: "Bandung", nilai: "82" },
+            { nama: "Yoga Abdul", alamat: "Bogor", nilai: "65" },
+            { nama: "Sarih Asih", alamat: "Bogor", nilai: "25" },
+            { nama: "Riska Aryani", alamat: "Rancaekek", nilai: "76" },
+            { nama: "Juki Maruk", alamat: "Cileunyi", nilai: "78" },
+            { nama: "Loka Saloka", alamat: "Cibereum", nilai: "92" },
+            { nama: "Luki Samsuloh", alamat: "Cijati", nilai: "89" },
+          ];
+          for (const [key, student] of students.entries()) {
+            let grade, predicate;
+            if (student.nilai >= 86 && student.nilai <= 100) {
+              grade = "A";
+            } else if (student.nilai > 75 && student.nilai < 86) {
+              grade = "B";
+            } else if (student.nilai > 60 && student.nilai < 76) {
+              grade = "C";
+            } else if (student.nilai > 30 && student.nilai < 61) {
+              grade = "D";
+            } else if (student.nilai >= 0 && student.nilai < 31) {
+              grade = "E";
+            }
+
+            switch (grade) {
+              case "A":
+                predicate = "Sangat Baik";
+                break;
+              case "B":
+                predicate = "Baik";
+                break;
+              case "C":
+                predicate = "Cukup";
+                break;
+              case "D":
+                predicate = "Kurang";
+                break;
+              case "E":
+                predicate = "Sangat Kurang";
+                break;
+              default:
+                break;
+            }
+
+            document.write(`
+            <tr bgcolor="${key % 2 == 0 ? "Turquoise" : "	#FAEBD7"}">
+              <td>${key + 1}</td>
+              <td>${student.nama}</td>
+              <td>${student.alamat}</td>
+              <td align="center">${student.nilai}</td>
+              <td align="center" style="background:${
+                grade == "E" ? "red" : ""
+              }">${grade}</td>
+              <td align="center" style="background:${
+                grade == "E" ? "red" : ""
+              }">${predicate}</td>
+            </tr>
+            `);
+          }
+        </script>
+      </tbody>
+    </table>
+  </body>
+</html>
